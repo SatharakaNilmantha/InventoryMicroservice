@@ -61,7 +61,7 @@ public class OrderService implements OrderServices {
             throw new ServiceCommunicationException("Inventory service is unavailable", e);
         }
 
-        // 2. Null / stock check (productId ගන්න කලින්)
+        // 2. Null / stock check (productId is retrieved from inventory response)
         if (inventoryResponse == null || inventoryResponse.getQuantity() <= 0) {
             throw new NotFoundException("Item with ID '" + itemId + "' is out of stock.");
         }
